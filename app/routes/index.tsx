@@ -10,12 +10,16 @@ import {
   Divider,
   Grid,
   IconButton,
+  Paper,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material"
+import Gravatar from "react-gravatar"
 import type { MetaFunction } from "remix"
 import Logo from "~/Logo"
+import TechItem from "~/TechItem"
+import { technologies } from "~/technologies"
 
 export let meta: MetaFunction = () => {
   return {
@@ -38,18 +42,29 @@ export default function Index() {
 
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
+            <Gravatar
+              style={{
+                marginTop: theme.spacing(2),
+                marginRight: theme.spacing(2),
+                borderRadius: `50%`,
+              }}
+              size={isXsDown ? 36 : 54}
+              email={`claytonfbell@gmail.com`}
+            />
             <Logo width={isXsDown ? 150 : 250} />
           </Grid>
-          {isXsDown ? (
-            <Grid item>
-              <IconButton href={twitter} color="primary">
-                <TwitterIcon />
-              </IconButton>
-              <IconButton href={gitHub} color="primary">
-                <GitHub />
-              </IconButton>
-            </Grid>
-          ) : null}
+          <Grid item>
+            {isXsDown ? (
+              <>
+                <IconButton href={twitter} color="primary">
+                  <TwitterIcon />
+                </IconButton>
+                <IconButton href={gitHub} color="primary">
+                  <GitHub />
+                </IconButton>
+              </>
+            ) : null}
+          </Grid>
         </Grid>
         <Grid container spacing={0}>
           {isXsDown ? (
@@ -112,16 +127,55 @@ export default function Index() {
         </Grid>
         <Divider />
 
-        <Box marginTop={3}>
-          <Typography
-            sx={{
-              fontWeight: "bold",
-              textTransform: "uppercase",
-            }}
-          >
-            Front-End
-          </Typography>
-        </Box>
+        <Paper sx={{ padding: 2, marginTop: 6 }}>
+          <Box marginTop={3}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+              }}
+            >
+              Front-End
+            </Typography>
+            {technologies
+              .filter((x) => x.group === "Front-End")
+              .map((x) => (
+                <TechItem key={x.name} technology={x} />
+              ))}
+          </Box>
+
+          <Box marginTop={3}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+              }}
+            >
+              Backend
+            </Typography>
+            {technologies
+              .filter((x) => x.group === "Backend")
+              .map((x) => (
+                <TechItem key={x.name} technology={x} />
+              ))}
+          </Box>
+
+          <Box marginTop={3}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+              }}
+            >
+              Dev Ops
+            </Typography>
+            {technologies
+              .filter((x) => x.group === "DevOps")
+              .map((x) => (
+                <TechItem key={x.name} technology={x} />
+              ))}
+          </Box>
+        </Paper>
 
         {/* <Paper sx={{ padding: 2 }}>Hello World</Paper> */}
       </Container>
