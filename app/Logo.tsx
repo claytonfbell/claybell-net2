@@ -1,19 +1,18 @@
-import { useTheme } from "@mui/material";
-import React from "react";
+import { useTheme } from "@mui/material"
+import React from "react"
 
 interface Props {
-  width: number;
+  width: number
 }
 
 export default function Logo(props: Props) {
-  const theme = useTheme();
-  const color = theme.palette.mode === "dark" ? "#ffffff" : "#4d4d4d";
-
+  const theme = useTheme()
+  const color = theme.palette.mode === "dark" ? "#ffffff" : "#4d4d4d"
   return (
-    <svg viewBox="0 0 600 200" width={props.width}>
+    <svg viewBox="50 0 600 160" width={props.width}>
       <path
         d="M119.68,95.07,89.75,136.74H61L91.91,95.43,62.32,55.32h29L119.66,95m0,0"
-        fill="#27aae1"
+        fill={theme.palette.primary.main}
       />
       <g>
         <path
@@ -31,15 +30,21 @@ export default function Logo(props: Props) {
         />
         <path
           d="M400.78,83.82q6.66,8.43,6.66,21.77,0,13.83-6.57,22.92t-18.33,9.09c-4.93,0-8.88-1-11.88-2.94a23.77,23.77,0,0,1-5.8-6.09V136H349.57V55.89h15.51V84.42a22.72,22.72,0,0,1,6.52-6.32,19.49,19.49,0,0,1,10.74-2.72Q394.12,75.38,400.78,83.82Zm-13,36.14q3.35-4.84,3.35-12.73a28.5,28.5,0,0,0-1.65-10.46q-3.12-7.83-11.52-7.84t-11.7,7.68a28.75,28.75,0,0,0-1.64,10.56q0,7.62,3.4,12.63t10.37,5A10.74,10.74,0,0,0,387.81,120Z"
-          fill="#27aae1"
+          fill={theme.palette.primary.main}
         />
         <path
           d="M456.88,77.89a24,24,0,0,1,10.25,8.78,29,29,0,0,1,4.73,12.26,75.17,75.17,0,0,1,.51,11.78H429.16q.36,8.92,6.2,12.52a15.75,15.75,0,0,0,8.56,2.23,13.1,13.1,0,0,0,8.61-2.72,12.92,12.92,0,0,0,3.19-4.08h15.84q-.62,5.28-5.75,10.72-8,8.66-22.32,8.66a32.36,32.36,0,0,1-20.9-7.3q-9.06-7.31-9.06-23.76,0-15.42,8.18-23.65t21.22-8.22A33.67,33.67,0,0,1,456.88,77.89Zm-23.21,13.4a16.11,16.11,0,0,0-4.13,9.19h26.73c-.29-4.12-1.66-7.25-4.14-9.38a13.6,13.6,0,0,0-9.2-3.2Q437,87.9,433.67,91.29Z"
-          fill="#27aae1"
+          fill={theme.palette.primary.main}
         />
-        <path d="M496.06,136H480.55V55.78h15.51Z" fill="#27aae1" />
-        <path d="M527,136H511.52V55.78H527Z" fill="#27aae1" />
+        <path
+          d="M496.06,136H480.55V55.78h15.51Z"
+          fill={theme.palette.primary.main}
+        />
+        <path
+          d="M527,136H511.52V55.78H527Z"
+          fill={theme.palette.primary.main}
+        />
       </g>
     </svg>
-  );
+  )
 }
