@@ -1,9 +1,15 @@
-import type { MetaFunction, LinksFunction, LoaderFunction } from "remix";
-import { useLoaderData } from "remix";
+import {
+    Container,
+    createTheme,
+    CssBaseline,
+    Paper,
+    ThemeProvider
+} from "@mui/material";
 import { Link } from "react-router-dom";
-
+import type { LinksFunction, LoaderFunction, MetaFunction } from "remix";
+import { useLoaderData } from "remix";
+import Logo from "~/Logo";
 import stylesUrl from "../styles/index.css";
-import { Container, createTheme, CssBaseline, Paper, ThemeProvider } from "@mui/material";
 
 export let meta: MetaFunction = () => {
   return {
@@ -22,16 +28,16 @@ export let loader: LoaderFunction = async () => {
 
 export default function Index() {
   let data = useLoaderData();
-const theme=createTheme({palette:{mode:'dark'}})
+  const theme = createTheme({ palette: { mode: "dark" } });
   return (
     <>
-    <ThemeProvider theme={theme}>
-
-      <Container>
-        <CssBaseline />
-        <Paper sx={{ padding: 2 }}>Hello World</Paper>
-      </Container>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Logo width={350} />
+        <Container>
+          <CssBaseline />
+          <Paper sx={{ padding: 2 }}>Hello World</Paper>
+        </Container>
+      </ThemeProvider>
       <div style={{ textAlign: "center", padding: 20 }}>
         <h2>Welcome to Remix!</h2>
         <p>
