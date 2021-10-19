@@ -3,4 +3,5 @@ node_modules
 /.cache
 /server/build
 /public/build
-.DS_Store
+
+.vercel
