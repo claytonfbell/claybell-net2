@@ -1,22 +1,45 @@
-import { Outlet } from "react-router-dom"
-import type { LinksFunction, LoaderFunction } from "remix"
+import DescriptionIcon from "@mui/icons-material/Description"
+import EmailIcon from "@mui/icons-material/Email"
+import GitHub from "@mui/icons-material/GitHub"
+import PhoneIcon from "@mui/icons-material/Phone"
+import TwitterIcon from "@mui/icons-material/Twitter"
 import {
-  Links,
-  LiveReload,
-  Meta,
-  Scripts,
-  useCatch,
-  useLoaderData,
-} from "remix"
+  Box,
+  Breadcrumbs,
+  Button,
+  Container,
+  CssBaseline,
+  Grid,
+  IconButton,
+  Link,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material"
+// @ts-ignore
+import { CloudinaryContext } from "cloudinary-react"
+import { DarkModeProvider, DarkModeToggle } from "material-ui-pack"
+import Gravatar from "react-gravatar"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
+import type { LinksFunction, MetaFunction } from "remix"
+import { Link as RemixLink, Links, LiveReload, Scripts, useCatch } from "remix"
+import Logo from "~/Logo"
+import { pages } from "./pages"
+import { useKeyboard } from "./routes/keyboards"
 import { SiteTheme } from "./SiteTheme"
 import stylesUrl from "./styles/global.css"
 
-export let links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }]
+export let meta: MetaFunction = () => {
+  return {
+    title: "Clayton Bell - Software Engineer",
+    description: "Software Engineer",
+    "og:image":
+      "https://res.cloudinary.com/doqodlq85/image/upload/v1635223488/claybell-net/resume/stack.png",
+  }
 }
 
-export let loader: LoaderFunction = async () => {
-  return { date: new Date() }
+export let links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: stylesUrl }]
 }
 
 function Document({
@@ -35,12 +58,17 @@ function Document({
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <meta
+          name="og:image"
+          content="https://res.cloudinary.com/doqodlq85/image/upload/v1635223488/claybell-net/resume/stack.png"
+        />
         {title ? <title>{title}</title> : null}
-        <Meta />
         <Links />
       </head>
       <body>
-        <SiteTheme>{children}</SiteTheme>
+        <DarkModeProvider>
+          <SiteTheme>{children}</SiteTheme>
+        </DarkModeProvider>
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
@@ -49,11 +77,157 @@ function Document({
 }
 
 export default function App() {
-  let data = useLoaderData()
+  const twitter = "https://twitter.com/claytonfbell"
+  const gitHub = "https://github.com/claytonfbell"
+
+  const theme = useTheme()
+  const isXsDown = useMediaQuery(theme.breakpoints.down("sm"))
+  const { pathname } = useLocation()
+  const keyboard = useKeyboard()
+
+  const navigate = useNavigate()
 
   return (
     <Document>
-      <Outlet />
+      <Container sx={{ marginTop: 2 }}>
+        <CssBaseline />
+
+        <Grid container alignItems="center" justifyContent="space-between">
+          <Grid item>
+            <Gravatar
+              style={{
+                marginTop: theme.spacing(2),
+                marginRight: theme.spacing(2),
+                borderRadius: `50%`,
+              }}
+              size={isXsDown ? 36 : 54}
+              email={`claytonfbell@gmail.com`}
+            />
+            <Logo width={isXsDown ? 150 : 250} />
+          </Grid>
+          <Grid item>
+            {isXsDown ? (
+              <>
+                <IconButton href={twitter} color="primary">
+                  <TwitterIcon />
+                </IconButton>
+                <IconButton href={gitHub} color="primary">
+                  <GitHub />
+                </IconButton>
+              </>
+            ) : null}
+          </Grid>
+        </Grid>
+        <Grid container spacing={0}>
+          {isXsDown ? (
+            <>
+              <Grid item xs={12}>
+                <Button
+                  variant="text"
+                  onClick={() => navigate("/resume")}
+                  startIcon={<DescriptionIcon />}
+                >
+                  Resumé
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  variant="text"
+                  href="tel:1-971-285-5666"
+                  startIcon={<PhoneIcon />}
+                >
+                  (971) 285-5666
+                </Button>
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  variant="text"
+                  href="mailto: claytonfbell@gmail.com"
+                  startIcon={<EmailIcon />}
+                >
+                  claytonfbell@gmail.com
+                </Button>
+              </Grid>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="text"
+                onClick={() => navigate("/resume")}
+                startIcon={<DescriptionIcon />}
+              >
+                Resumé
+              </Button>
+              <Button
+                sx={{ marginRight: !isXsDown ? 1 : undefined }}
+                variant="text"
+                href="tel:1-971-285-5666"
+                startIcon={!isXsDown ? <PhoneIcon /> : undefined}
+              >
+                (971) 285-5666
+              </Button>
+              <Button
+                sx={{ marginRight: !isXsDown ? 1 : undefined }}
+                variant="text"
+                href="mailto: claytonfbell@gmail.com"
+                startIcon={!isXsDown ? <EmailIcon /> : undefined}
+              >
+                claytonfbell@gmail.com
+              </Button>
+              <Button
+                sx={{ marginRight: 1 }}
+                variant="text"
+                href={twitter}
+                startIcon={<TwitterIcon />}
+              >
+                @claytonfbell
+              </Button>
+              <Button
+                sx={{ marginRight: 1 }}
+                variant="text"
+                href={gitHub}
+                startIcon={<GitHub />}
+              >
+                github.com/claytonfbell
+              </Button>
+            </>
+          )}
+        </Grid>
+
+        {pathname !== "/" ? (
+          <Breadcrumbs sx={{ marginTop: 2 }}>
+            <Link component={RemixLink} to="/">
+              Home
+            </Link>
+            {keyboard !== undefined ? (
+              <Link component={RemixLink} to="/keyboards">
+                Keyboards
+              </Link>
+            ) : null}
+            {keyboard !== undefined ? (
+              <Typography color="text.primary">{keyboard.name}</Typography>
+            ) : null}
+            {keyboard === undefined ? (
+              <Typography color="text.primary">
+                {pages.find((x) => x.route === pathname)?.title}
+              </Typography>
+            ) : null}
+          </Breadcrumbs>
+        ) : null}
+
+        <CloudinaryContext cloudName="doqodlq85">
+          <Box
+            sx={{
+              marginTop: 2,
+            }}
+          >
+            <Outlet />
+          </Box>
+        </CloudinaryContext>
+        <Box sx={{ marginTop: 8 }}>
+          <DarkModeToggle />
+        </Box>
+      </Container>
       <footer>
         {/* <p>This page was rendered at {data.date.toLocaleString()}</p> */}
       </footer>

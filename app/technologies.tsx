@@ -21,6 +21,7 @@ import PHPIcon from "./icons/PHPIcon"
 import { PostgreSQL } from "./icons/PostgreSQL"
 import { Prisma } from "./icons/Prisma"
 import ReactIcon from "./icons/ReactIcon"
+import { Remix } from "./icons/Remix"
 import SQLite3Icon from "./icons/SQLite3Icon"
 import TravisIcon from "./icons/TravisIcon"
 import TypeScriptIcon from "./icons/TypeScriptIcon"
@@ -33,6 +34,7 @@ export type TechnologyName =
   | "React"
   | "mdx"
   | "Gatsby"
+  | "Remix"
   | "Netlify"
   | "Angular"
   | "PHP"
@@ -145,8 +147,7 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
   {
     name: "Objective-C",
     icon: <ObjectiveCIcon />,
-    url:
-      "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
+    url: "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
     group: "Front-End",
     description:
       "I have an Enterprise Apple Membership. I wrote an iOS application in 2010 for scanning tickets. It gets regular updates with new features several times a year.",
@@ -263,12 +264,17 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     group: "Backend",
     description: "JavaScript runtime",
   },
+  {
+    name: "Remix",
+    icon: <Remix />,
+    url: "https://remix.run",
+    group: "Backend",
+    description: "JavaScript runtime",
+  },
 ]
-// digital ocean
 // docker
 // python
 // webpack
-// node js
 // Linux
 // Cypress
 // zeit

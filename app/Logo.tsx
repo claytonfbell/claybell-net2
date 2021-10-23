@@ -7,7 +7,7 @@ interface Props {
 
 export default function Logo(props: Props) {
   const theme = useTheme()
-  const color = theme.palette.mode === "dark" ? "#ffffff" : "#4d4d4d"
+  const color = theme.palette.text.primary
   return (
     <svg viewBox="50 0 600 160" width={props.width}>
       <path
