@@ -269,7 +269,7 @@ I attended [Reactathon 2019](https://www.reactjsvideos.com/conference/reactathon
     icon: <Remix />,
     url: "https://remix.run",
     group: "Backend",
-    description: "JavaScript runtime",
+    description: "A terrific framework built upon react-router.",
   },
 ]
 // docker

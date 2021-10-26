@@ -101,16 +101,20 @@ export default function App() {
 
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
-            <Gravatar
-              style={{
-                marginTop: theme.spacing(2),
-                marginRight: theme.spacing(2),
-                borderRadius: `50%`,
-              }}
-              size={isXsDown ? 36 : 54}
-              email={`claytonfbell@gmail.com`}
-            />
-            <Logo width={isXsDown ? 150 : 250} />
+            <RemixLink to="/resume">
+              <Gravatar
+                style={{
+                  marginTop: theme.spacing(2),
+                  marginRight: theme.spacing(2),
+                  borderRadius: `50%`,
+                }}
+                size={isXsDown ? 36 : 54}
+                email={`claytonfbell@gmail.com`}
+              />
+            </RemixLink>
+            <RemixLink to="/">
+              <Logo width={isXsDown ? 150 : 250} />
+            </RemixLink>
           </Grid>
           <Grid item>
             {isXsDown ? (
