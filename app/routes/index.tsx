@@ -49,7 +49,11 @@ export default function Index() {
                       publicId={`claybell-net/${page.menuImage}`}
                       width="100%"
                     >
-                      <Transformation width="400" height="200" crop="fill" />
+                      <Transformation
+                        width={isMobile ? 450 : 275}
+                        height={isMobile ? 200 : 140}
+                        crop="fill"
+                      />
                     </Image>
                   </CardMedia>
                   <CardContent sx={{ minHeight: !isMobile ? 180 : undefined }}>
