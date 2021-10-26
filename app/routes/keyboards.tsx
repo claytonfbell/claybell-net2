@@ -1,7 +1,7 @@
 import { Grid, Link as MUILink, useTheme } from "@mui/material"
 // @ts-ignore
 import { Image, Transformation } from "cloudinary-react"
-import { useLocation, useParams } from "react-router"
+import { useLocation, useParams } from "react-router-dom"
 import { Link, Outlet } from "remix"
 
 interface RouteParams {
