@@ -98,41 +98,76 @@ export default function App() {
     <Document>
       <Container sx={{ marginTop: 2 }}>
         <CssBaseline />
-
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item>
-            <RemixLink to="/resume">
-              <Gravatar
-                style={{
-                  marginTop: theme.spacing(2),
-                  marginRight: theme.spacing(2),
-                  borderRadius: `50%`,
-                }}
-                size={isXsDown ? 36 : 54}
-                email={`claytonfbell@gmail.com`}
-              />
-            </RemixLink>
-            <RemixLink to="/">
-              <Logo width={isXsDown ? 150 : 250} />
-            </RemixLink>
+        <Box
+          sx={{
+            "@media print": {
+              display: "none",
+            },
+          }}
+        >
+          <Grid container alignItems="center" justifyContent="space-between">
+            <Grid item>
+              <RemixLink to="/resume">
+                <Gravatar
+                  style={{
+                    marginTop: theme.spacing(2),
+                    marginRight: theme.spacing(2),
+                    borderRadius: `50%`,
+                  }}
+                  size={isXsDown ? 36 : 54}
+                  email={`claytonfbell@gmail.com`}
+                />
+              </RemixLink>
+              <RemixLink to="/">
+                <Logo width={isXsDown ? 150 : 250} />
+              </RemixLink>
+            </Grid>
+            <Grid item>
+              {isXsDown ? (
+                <>
+                  <IconButton href={twitter} color="primary">
+                    <TwitterIcon />
+                  </IconButton>
+                  <IconButton href={gitHub} color="primary">
+                    <GitHub />
+                  </IconButton>
+                </>
+              ) : null}
+            </Grid>
           </Grid>
-          <Grid item>
+          <Grid container spacing={0}>
             {isXsDown ? (
               <>
-                <IconButton href={twitter} color="primary">
-                  <TwitterIcon />
-                </IconButton>
-                <IconButton href={gitHub} color="primary">
-                  <GitHub />
-                </IconButton>
+                <Grid item xs={12}>
+                  <Button
+                    variant="text"
+                    onClick={() => navigate("/resume")}
+                    startIcon={<DescriptionIcon />}
+                  >
+                    Resumé
+                  </Button>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    variant="text"
+                    href="tel:1-971-285-5666"
+                    startIcon={<PhoneIcon />}
+                  >
+                    (971) 285-5666
+                  </Button>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    variant="text"
+                    href="mailto: claytonfbell@gmail.com"
+                    startIcon={<EmailIcon />}
+                  >
+                    claytonfbell@gmail.com
+                  </Button>
+                </Grid>
               </>
-            ) : null}
-          </Grid>
-        </Grid>
-        <Grid container spacing={0}>
-          {isXsDown ? (
-            <>
-              <Grid item xs={12}>
+            ) : (
+              <>
                 <Button
                   variant="text"
                   onClick={() => navigate("/resume")}
@@ -140,92 +175,63 @@ export default function App() {
                 >
                   Resumé
                 </Button>
-              </Grid>
-              <Grid item xs={12}>
                 <Button
+                  sx={{ marginRight: !isXsDown ? 1 : undefined }}
                   variant="text"
                   href="tel:1-971-285-5666"
-                  startIcon={<PhoneIcon />}
+                  startIcon={!isXsDown ? <PhoneIcon /> : undefined}
                 >
                   (971) 285-5666
                 </Button>
-              </Grid>
-              <Grid item xs={12}>
                 <Button
+                  sx={{ marginRight: !isXsDown ? 1 : undefined }}
                   variant="text"
                   href="mailto: claytonfbell@gmail.com"
-                  startIcon={<EmailIcon />}
+                  startIcon={!isXsDown ? <EmailIcon /> : undefined}
                 >
                   claytonfbell@gmail.com
                 </Button>
-              </Grid>
-            </>
-          ) : (
-            <>
-              <Button
-                variant="text"
-                onClick={() => navigate("/resume")}
-                startIcon={<DescriptionIcon />}
-              >
-                Resumé
-              </Button>
-              <Button
-                sx={{ marginRight: !isXsDown ? 1 : undefined }}
-                variant="text"
-                href="tel:1-971-285-5666"
-                startIcon={!isXsDown ? <PhoneIcon /> : undefined}
-              >
-                (971) 285-5666
-              </Button>
-              <Button
-                sx={{ marginRight: !isXsDown ? 1 : undefined }}
-                variant="text"
-                href="mailto: claytonfbell@gmail.com"
-                startIcon={!isXsDown ? <EmailIcon /> : undefined}
-              >
-                claytonfbell@gmail.com
-              </Button>
-              <Button
-                sx={{ marginRight: 1 }}
-                variant="text"
-                href={twitter}
-                startIcon={<TwitterIcon />}
-              >
-                @claytonfbell
-              </Button>
-              <Button
-                sx={{ marginRight: 1 }}
-                variant="text"
-                href={gitHub}
-                startIcon={<GitHub />}
-              >
-                github.com/claytonfbell
-              </Button>
-            </>
-          )}
-        </Grid>
+                <Button
+                  sx={{ marginRight: 1 }}
+                  variant="text"
+                  href={twitter}
+                  startIcon={<TwitterIcon />}
+                >
+                  @claytonfbell
+                </Button>
+                <Button
+                  sx={{ marginRight: 1 }}
+                  variant="text"
+                  href={gitHub}
+                  startIcon={<GitHub />}
+                >
+                  github.com/claytonfbell
+                </Button>
+              </>
+            )}
+          </Grid>
 
-        {pathname !== "/" ? (
-          <Breadcrumbs sx={{ marginTop: 2 }}>
-            <Link component={RemixLink} to="/">
-              Home
-            </Link>
-            {keyboard !== undefined ? (
-              <Link component={RemixLink} to="/keyboards">
-                Keyboards
+          {pathname !== "/" ? (
+            <Breadcrumbs sx={{ marginTop: 2 }}>
+              <Link component={RemixLink} to="/">
+                Home
               </Link>
-            ) : null}
-            {keyboard !== undefined ? (
-              <Typography color="text.primary">{keyboard.name}</Typography>
-            ) : null}
-            {keyboard === undefined ? (
-              <Typography color="text.primary">
-                {pages.find((x) => x.route === pathname)?.title}
-              </Typography>
-            ) : null}
-          </Breadcrumbs>
-        ) : null}
-
+              {keyboard !== undefined ? (
+                <Link component={RemixLink} to="/keyboards">
+                  Keyboards
+                </Link>
+              ) : null}
+              {keyboard !== undefined ? (
+                <Typography color="text.primary">{keyboard.name}</Typography>
+              ) : null}
+              {keyboard === undefined ? (
+                <Typography color="text.primary">
+                  {pages.find((x) => x.route === pathname)?.title}
+                </Typography>
+              ) : null}
+            </Breadcrumbs>
+          ) : null}
+        </Box>
         <CloudinaryContext cloudName="doqodlq85">
           <Box
             sx={{
@@ -235,7 +241,14 @@ export default function App() {
             <Outlet />
           </Box>
         </CloudinaryContext>
-        <Box sx={{ marginTop: 8 }}>
+        <Box
+          sx={{
+            marginTop: 8,
+            "@media print": {
+              display: "none",
+            },
+          }}
+        >
           <DarkModeToggle />
         </Box>
       </Container>

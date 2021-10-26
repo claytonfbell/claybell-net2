@@ -1,5 +1,8 @@
+import PrintIcon from "@mui/icons-material/Print"
 import {
   Box,
+  Button,
+  Grid,
   Link as MUILink,
   Paper,
   Typography,
@@ -22,68 +25,72 @@ export default function Resume() {
 
   return (
     <>
-      <Box>
-        <Typography sx={{ fontWeight: "bold", fontSize: 42 }}>
-          Clayton Bell
-        </Typography>
-
-        <Typography>Software Engineer • Portland Oregon</Typography>
-
-        <Typography>Experienced, Productive, Creative</Typography>
-      </Box>
-
-      <Paper sx={{ padding: 2, marginTop: 6 }}>
-        <Box marginTop={3}>
-          <Typography
-            sx={{
-              fontWeight: "bold",
-              textTransform: "uppercase",
-            }}
-          >
-            Front-End
+      <Grid container justifyContent="space-between">
+        <Grid item>
+          <Typography sx={{ fontWeight: "bold", fontSize: 36 }}>
+            Clayton Bell
           </Typography>
-          {technologies
-            .filter((x) => x.group === "Front-End")
-            .map((x) => (
-              <TechItem key={x.name} technology={x} />
-            ))}
-        </Box>
 
-        <Box marginTop={3}>
-          <Typography
-            sx={{
-              fontWeight: "bold",
-              textTransform: "uppercase",
-            }}
-          >
-            Backend
-          </Typography>
-          {technologies
-            .filter((x) => x.group === "Backend")
-            .map((x) => (
-              <TechItem key={x.name} technology={x} />
-            ))}
-        </Box>
+          <Typography>Software Engineer • Portland Oregon</Typography>
 
-        <Box marginTop={3}>
-          <Typography
-            sx={{
-              fontWeight: "bold",
-              textTransform: "uppercase",
-            }}
+          <Typography>Experienced, Productive, Creative</Typography>
+        </Grid>
+        <Grid
+          item
+          sx={{
+            "@media print": {
+              display: "none",
+            },
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => window.print()}
+            startIcon={<PrintIcon />}
           >
-            Dev Ops
-          </Typography>
-          {technologies
-            .filter((x) => x.group === "DevOps")
-            .map((x) => (
-              <TechItem key={x.name} technology={x} />
-            ))}
-        </Box>
+            Print
+          </Button>
+        </Grid>
+      </Grid>
+
+      <Paper sx={{ padding: 2, marginTop: 2 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+              }}
+            >
+              Front-End
+            </Typography>
+            {technologies
+              .filter((x) => x.group === "Front-End")
+              .map((x) => (
+                <TechItem key={x.name} technology={x} />
+              ))}
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                textTransform: "uppercase",
+              }}
+            >
+              Backend &amp; Dev Ops
+            </Typography>
+            {technologies
+              .filter((x) => x.group === "Backend" || x.group === "DevOps")
+              .map((x) => (
+                <TechItem key={x.name} technology={x} />
+              ))}
+          </Grid>
+        </Grid>
       </Paper>
 
-      {employment.reverse().map((e) => (
-        <Box key={e.employer} sx={{ marginTop: 4 }}>
+      {[...employment].reverse().map((e) => (
+        <Box key={e.employer} sx={{ marginTop: 2 }}>
           <Typography variant="h5" component="h2">
             {e.employer}
           </Typography>
@@ -100,6 +107,22 @@ export default function Resume() {
           )}
         </Box>
       ))}
+
+      <Box
+        sx={{
+          width: "100%",
+          marginTop: 3,
+          textAlign: "center",
+          ["@media screen"]: {
+            display: "none",
+          },
+          position: "absolute",
+          bottom: 28,
+          left: "-.25in",
+        }}
+      >
+        claytonfbell@gmail.com • (971) 285-5666 • claybell.net
+      </Box>
     </>
   )
 }

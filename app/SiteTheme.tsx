@@ -1,12 +1,13 @@
-import { darken, ThemeProvider } from "@mui/material"
+import { darken, ThemeProvider, useTheme } from "@mui/material"
 import { useDarkMode } from "material-ui-pack"
 import React from "react"
 
 const BLUE = "#27aae1"
 
 export function SiteTheme(props: { children: React.ReactNode }) {
+  const theme = useTheme()
   const { createMuiThemeWithDarkMode, darkMode } = useDarkMode()
-  const theme = createMuiThemeWithDarkMode({
+  const siteThem = createMuiThemeWithDarkMode({
     typography: {
       h1: {
         fontSize: 36,
@@ -25,6 +26,25 @@ export function SiteTheme(props: { children: React.ReactNode }) {
         : {}),
     },
     components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          "@page": {
+            margin: 0,
+          },
+          "@media only print": {
+            body: {
+              margin: 0,
+              padding: ".25in",
+              backgroundColor: "#ffffff",
+              minHeight: "10in",
+              color: theme.palette.text.primary,
+            },
+          },
+          html: {
+            margin: 0,
+          },
+        },
+      },
       MuiTooltip: {
         defaultProps: { arrow: true },
         styleOverrides: {
@@ -43,5 +63,5 @@ export function SiteTheme(props: { children: React.ReactNode }) {
     },
   })
 
-  return <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+  return <ThemeProvider theme={siteThem}>{props.children}</ThemeProvider>
 }
