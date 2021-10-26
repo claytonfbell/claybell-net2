@@ -21,8 +21,16 @@ import { CloudinaryContext } from "cloudinary-react"
 import { DarkModeProvider, DarkModeToggle } from "material-ui-pack"
 import Gravatar from "react-gravatar"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
-import type { LinksFunction, MetaFunction } from "remix"
-import { Link as RemixLink, Links, LiveReload, Scripts, useCatch } from "remix"
+import {
+  Link as RemixLink,
+  Links,
+  LinksFunction,
+  LiveReload,
+  Meta,
+  MetaFunction,
+  Scripts,
+  useCatch,
+} from "remix"
 import Logo from "~/Logo"
 import { pages } from "./pages"
 import { useKeyboard } from "./routes/keyboards"
@@ -33,8 +41,6 @@ export let meta: MetaFunction = () => {
   return {
     title: "Clayton Bell - Software Engineer",
     description: "Software Engineer",
-    "og:image":
-      "https://res.cloudinary.com/doqodlq85/image/upload/v1635223488/claybell-net/resume/stack.png",
   }
 }
 
@@ -63,6 +69,7 @@ function Document({
           content="https://res.cloudinary.com/doqodlq85/image/upload/v1635223488/claybell-net/resume/stack.png"
         />
         {title ? <title>{title}</title> : null}
+        <Meta />
         <Links />
       </head>
       <body>
