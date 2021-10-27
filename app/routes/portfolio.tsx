@@ -10,8 +10,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material"
-// @ts-ignore
-import { Image, Transformation } from "cloudinary-react"
+import { CloudinaryImage } from "react-easy-cloudinary"
 import { Outlet, useLocation } from "react-router-dom"
 import { GridImage, pages } from "../pages"
 import { TechStack } from "../TechStack"
@@ -89,9 +88,12 @@ export default function Portfolio() {
             <Grid container spacing={1} marginTop={3}>
               {gridImages.map(({ file, ...gridProps }) => (
                 <Grid key={file} item {...gridProps}>
-                  <Image publicId={`claybell-net/${file}`} width="100%">
-                    <Transformation width={2000} crop="scale" />
-                  </Image>
+                  <CloudinaryImage
+                    publicId={`claybell-net/${file}`}
+                    fullWidth
+                    width={2000}
+                    resize="scale"
+                  />
                 </Grid>
               ))}
             </Grid>

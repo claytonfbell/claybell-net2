@@ -1,6 +1,5 @@
 import { Grid, Link as MUILink, useTheme } from "@mui/material"
-// @ts-ignore
-import { Image, Transformation } from "cloudinary-react"
+import { CloudinaryImage } from "react-easy-cloudinary"
 import { useLocation, useParams } from "react-router-dom"
 import { Link, Outlet } from "remix"
 
@@ -47,12 +46,13 @@ export default function Keyboards() {
                 },
               }}
             >
-              <Image
+              <CloudinaryImage
                 publicId={`claybell-net/keyboards/${keyboard.photos[0].fileName}`}
-                width="100%"
-              >
-                <Transformation width={250} height={250} crop="fill" />
-              </Image>
+                fullWidth
+                resize="fill"
+                width={250}
+                height={250}
+              />
             </MUILink>
           </Grid>
         ))}

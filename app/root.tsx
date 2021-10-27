@@ -16,9 +16,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-// @ts-ignore
-import { CloudinaryContext } from "cloudinary-react"
 import { DarkModeProvider, DarkModeToggle } from "material-ui-pack"
+import { CloudinaryProvider } from "react-easy-cloudinary"
 import Gravatar from "react-gravatar"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import {
@@ -232,7 +231,7 @@ export default function App() {
             </Breadcrumbs>
           ) : null}
         </Box>
-        <CloudinaryContext cloudName="doqodlq85">
+        <CloudinaryProvider cloudinaryId="doqodlq85">
           <Box
             sx={{
               marginTop: 2,
@@ -240,7 +239,7 @@ export default function App() {
           >
             <Outlet />
           </Box>
-        </CloudinaryContext>
+        </CloudinaryProvider>
         <Box
           sx={{
             marginTop: 8,

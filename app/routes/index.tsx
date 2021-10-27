@@ -8,8 +8,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-// @ts-ignore
-import { Image, Transformation } from "cloudinary-react"
+import { CloudinaryImage } from "react-easy-cloudinary"
 import { Link } from "remix"
 import { pages } from "../pages"
 
@@ -45,16 +44,13 @@ export default function Index() {
                   }}
                 >
                   <CardMedia>
-                    <Image
+                    <CloudinaryImage
                       publicId={`claybell-net/${page.menuImage}`}
-                      width="100%"
-                    >
-                      <Transformation
-                        width={isMobile ? 450 : 275}
-                        height={isMobile ? 200 : 140}
-                        crop="fill"
-                      />
-                    </Image>
+                      fullWidth
+                      resize="fill"
+                      width={isMobile ? 450 : 275}
+                      height={isMobile ? 200 : 140}
+                    />
                   </CardMedia>
                   <CardContent sx={{ minHeight: !isMobile ? 180 : undefined }}>
                     <strong>{page.title}</strong>

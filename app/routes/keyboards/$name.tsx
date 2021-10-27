@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
-// @ts-ignore
-import { Image, Transformation } from "cloudinary-react"
+import { CloudinaryImage } from "react-easy-cloudinary"
 import ReactMarkdown from "react-markdown"
 import { useKeyboard } from "../keyboards"
 
@@ -17,14 +16,13 @@ export default function Keyboard() {
         </Typography>
       ) : null}
       {(keyboard?.photos || []).map((photo) => (
-        <Box sx={{ marginTop: 2 }}>
-          <Image
-            key={photo.fileName}
+        <Box key={photo.fileName} sx={{ marginTop: 2 }}>
+          <CloudinaryImage
+            fullWidth
             publicId={`claybell-net/keyboards/${photo.fileName}`}
-            width="100%"
-          >
-            <Transformation width={1600} crop="scale" />
-          </Image>
+            resize="scale"
+            width={1600}
+          />
         </Box>
       ))}
     </>
