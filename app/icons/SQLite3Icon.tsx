@@ -19,9 +19,9 @@ export default function SQLite3Icon() {
           gradientTransform="matrix(0, 11.49, 11.49, 0, -5738.69, 1206.63)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#97d9f6" />
-          <stop offset="0.92" stop-color="#0f80cc" />
-          <stop offset="1" stop-color="#0f80cc" />
+          <stop offset="0" stopColor="#97d9f6" />
+          <stop offset="0.92" stopColor="#0f80cc" />
+          <stop offset="1" stopColor="#0f80cc" />
         </linearGradient>
       </defs>
       <path

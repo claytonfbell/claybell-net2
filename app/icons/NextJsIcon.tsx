@@ -11,15 +11,15 @@ export default function NextJsIcon() {
       <g
         id="Page-1"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g
           id="Black-Next.js"
           transform="translate(-247.000000, -138.000000)"
           fill={darkMode ? "#fff" : "#000"}
-          fill-rule="nonzero"
+          fillRule="nonzero"
         >
           <g id="next-black" transform="translate(247.000000, 138.000000)">
             <g id="EXT-+-Type-something">

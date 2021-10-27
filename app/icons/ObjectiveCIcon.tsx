@@ -13,8 +13,8 @@ export default function ObjectiveCIcon() {
         gradientUnits="userSpaceOnUse"
         spreadMethod="reflect"
       >
-        <stop offset="0" stop-color="#1a6dff" />
-        <stop offset="1" stop-color="#c822ff" />
+        <stop offset="0" stopColor="#1a6dff" />
+        <stop offset="1" stopColor="#c822ff" />
       </linearGradient>
       <path
         fill="url(#yJQpXcg5hnmPAoMSoLMbGa)"
@@ -29,8 +29,8 @@ export default function ObjectiveCIcon() {
         gradientUnits="userSpaceOnUse"
         spreadMethod="reflect"
       >
-        <stop offset="0" stop-color="#6dc7ff" />
-        <stop offset="1" stop-color="#e6abff" />
+        <stop offset="0" stopColor="#6dc7ff" />
+        <stop offset="1" stopColor="#e6abff" />
       </linearGradient>
       <path
         fill="url(#yJQpXcg5hnmPAoMSoLMbGb)"
@@ -45,8 +45,8 @@ export default function ObjectiveCIcon() {
         gradientUnits="userSpaceOnUse"
         spreadMethod="reflect"
       >
-        <stop offset="0" stop-color="#6dc7ff" />
-        <stop offset="1" stop-color="#e6abff" />
+        <stop offset="0" stopColor="#6dc7ff" />
+        <stop offset="1" stopColor="#e6abff" />
       </linearGradient>
       <path fill="url(#yJQpXcg5hnmPAoMSoLMbGc)" d="M18 29H20V39H18z" />
       <linearGradient
@@ -58,8 +58,8 @@ export default function ObjectiveCIcon() {
         gradientUnits="userSpaceOnUse"
         spreadMethod="reflect"
       >
-        <stop offset="0" stop-color="#6dc7ff" />
-        <stop offset="1" stop-color="#e6abff" />
+        <stop offset="0" stopColor="#6dc7ff" />
+        <stop offset="1" stopColor="#e6abff" />
       </linearGradient>
       <path
         fill="url(#yJQpXcg5hnmPAoMSoLMbGd)"
@@ -74,8 +74,8 @@ export default function ObjectiveCIcon() {
         gradientUnits="userSpaceOnUse"
         spreadMethod="reflect"
       >
-        <stop offset="0" stop-color="#6dc7ff" />
-        <stop offset="1" stop-color="#e6abff" />
+        <stop offset="0" stopColor="#6dc7ff" />
+        <stop offset="1" stopColor="#e6abff" />
       </linearGradient>
       <path
         fill="url(#yJQpXcg5hnmPAoMSoLMbGe)"

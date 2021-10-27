@@ -10,7 +10,7 @@ export default function PHPIcon() {
       width="100"
     >
       <defs>
-        <clipPath id="clip-path" transform="translate(-10 -10)">
+        <clipPath id="clipPath" transform="translate(-10 -10)">
           <path
             d="M10,191.8c0,100.4,154.73,181.8,345.6,181.8h0c190.87,0,345.6-81.4,345.6-181.8h0C701.2,91.4,546.47,10,355.6,10h0C164.73,10,10,91.4,10,191.8"
             fill="none"
@@ -24,18 +24,18 @@ export default function PHPIcon() {
           gradientTransform="matrix(453.82, 0, 0, -453.82, -22423.62, 267172.29)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#aeb2d5" />
-          <stop offset="0.3" stop-color="#aeb2d5" />
-          <stop offset="0.75" stop-color="#484c89" />
-          <stop offset="1" stop-color="#484c89" />
+          <stop offset="0" stopColor="#aeb2d5" />
+          <stop offset="0.3" stopColor="#aeb2d5" />
+          <stop offset="0.75" stopColor="#484c89" />
+          <stop offset="1" stopColor="#484c89" />
         </radialGradient>
-        <clipPath id="clip-path-2" transform="translate(-10 -10)">
+        <clipPath id="clipPath-2" transform="translate(-10 -10)">
           <rect x="-4.4" y="-10.7" width="720" height="405" fill="none" />
         </clipPath>
       </defs>
       <g id="g3438">
         <g id="g3440">
-          <g clip-path="url(#clip-path)">
+          <g clipPath="url(#clipPath)">
             <g id="g3442">
               <g id="g3448">
                 <g id="g3450">
@@ -51,7 +51,7 @@ export default function PHPIcon() {
           </g>
         </g>
         <g id="g3464">
-          <g clip-path="url(#clip-path-2)">
+          <g clipPath="url(#clipPath-2)">
             <g id="g3466">
               <g id="g3472">
                 <path
@@ -65,7 +65,7 @@ export default function PHPIcon() {
           </g>
         </g>
         <g id="g3476">
-          <g clip-path="url(#clip-path-2)">
+          <g clipPath="url(#clipPath-2)">
             <g id="g3478">
               <g id="g3484">
                 <path

@@ -13,8 +13,8 @@ export default function NetlifyIcon() {
           r="100%"
           id="IconifyId-171bebde9d8-91082b-7"
         >
-          <stop stop-color="#20C6B7" offset="0%" />
-          <stop stop-color="#4D9ABF" offset="100%" />
+          <stop stopColor="#20C6B7" offset="0%" />
+          <stop stopColor="#4D9ABF" offset="100%" />
         </radialGradient>
       </defs>
       <path

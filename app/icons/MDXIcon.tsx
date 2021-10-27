@@ -16,15 +16,15 @@ export default function MDXIcon() {
             transform="translate(-13.45 -9.88)"
             fill="none"
             stroke="#000"
-            stroke-linecap="square"
-            stroke-width="6"
+            strokeLinecap="square"
+            strokeWidth="6"
           />
           <path
             d="M57,27.24,70.61,40.85,84,27.44"
             transform="translate(-13.45 -9.88)"
             fill="none"
             stroke="#000"
-            stroke-width="6"
+            strokeWidth="6"
           />
         </g>
         <path
@@ -32,14 +32,14 @@ export default function MDXIcon() {
           transform="translate(-13.45 -9.88)"
           fill="none"
           stroke="#000"
-          stroke-width="6"
+          strokeWidth="6"
         />
         <path
           d="M122.44,41.27,93.17,12m.39,29.27L122.83,12"
           transform="translate(-13.45 -9.88)"
           fill="none"
           stroke="#f9ac00"
-          stroke-width="6"
+          strokeWidth="6"
         />
       </g>
     </SvgIcon>
