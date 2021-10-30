@@ -211,7 +211,7 @@ export const pages: Page[] = [
     route: "/keyboards",
     title: "Keyboards",
     description: "Keyboards are fun.",
-    menuImage: "keyboards/stainless3.jpg",
+    menuImage: "keyboards/stainless3.jpeg",
     stack: [],
   },
 ]

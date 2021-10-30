@@ -75,6 +75,15 @@ interface Photo {
 
 const keyboards: Keyboard[] = [
   {
+    name: "IDOBAO ID80 V2 75%",
+    photos: [
+      { fileName: "808-3.jpeg", caption: "Side" },
+      { fileName: "808-1.jpeg", caption: "Front with Lights" },
+      { fileName: "808-2.jpeg", caption: "Front" },
+    ],
+    notes: "IFK 808-Boom Keyset",
+  },
+  {
     name: "Laser Cut Stainless Steel",
     photos: [
       { fileName: "stainless1.jpeg", caption: "Front" },
@@ -165,3 +174,8 @@ const keyboards: Keyboard[] = [
 `,
   },
 ]
+
+export function getRandomKeyboardPhoto() {
+  const allPhotos = keyboards.flatMap((x) => x.photos)
+  return allPhotos[Math.floor(Math.random() * allPhotos.length)]
+}
