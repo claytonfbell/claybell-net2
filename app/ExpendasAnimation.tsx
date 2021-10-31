@@ -7,10 +7,13 @@ export function ExpendasAnimation() {
       sx={{
         textAlign: "center",
         backgroundColor: "#2c2d2c",
-        padding: 4,
       }}
     >
-      <img src={gif} alt="expendas.com" />
+      <img
+        src={gif}
+        alt="expendas.com"
+        style={{ width: "100%", maxWidth: 320 }}
+      />
     </Box>
   )
 }
