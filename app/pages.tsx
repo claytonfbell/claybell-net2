@@ -85,7 +85,7 @@ export const pages: Page[] = [
     route: "/portfolio/expendas",
     title: "Expendas",
     description: "A website for managing personal finance.",
-    menuImage: "expendas/expendas.png",
+    menuImage: "expendas/expendas1.png",
     stack: ["NextJS", "Material UI", "React", "TypeScript", "Vercel", "NodeJS"],
     website: "https://expendas.com",
     gitHub: "https://github.com/claytonfbell/expendas.git",
