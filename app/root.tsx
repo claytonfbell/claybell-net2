@@ -72,7 +72,7 @@ function Document({
         <Links />
       </head>
       <body>
-        <DarkModeProvider>
+        <DarkModeProvider preferDarkMode>
           <SiteTheme>{children}</SiteTheme>
         </DarkModeProvider>
         <Scripts />
