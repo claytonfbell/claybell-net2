@@ -25,6 +25,7 @@
     "react-dom": "^17.0.2",
     "react-easy-cloudinary": "^1.0.3",
     "react-gravatar": "^2.6.3",
+    "react-gtm-module": "^2.0.11",
     "react-markdown": "^6.0.3",
     "react-router-dom": "6.0.0-beta.6",
     "remark-mdx-code-meta": "^1.0.0",
@@ -35,6 +36,7 @@
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/react-gravatar": "^2.6.10",
+    "@types/react-gtm-module": "^2.0.1",
     "standard-version": "^9.3.2",
     "typescript": "^4.4.4",
     "vercel": "^21.2.2"

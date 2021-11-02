@@ -17,8 +17,10 @@ import {
   useTheme,
 } from "@mui/material"
 import { DarkModeProvider, DarkModeToggle } from "material-ui-pack"
+import { useEffect } from "react"
 import { CloudinaryProvider } from "react-easy-cloudinary"
 import Gravatar from "react-gravatar"
+import TagManager from "react-gtm-module"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import {
   Link as RemixLink,
@@ -35,6 +37,10 @@ import { pages } from "./pages"
 import { useKeyboard } from "./routes/keyboards"
 import { SiteTheme } from "./SiteTheme"
 import stylesUrl from "./styles/global.css"
+
+const tagManagerArgs = {
+  gtmId: "GTM-MBR2ZXR",
+}
 
 export let meta: MetaFunction = () => {
   return {
@@ -54,6 +60,10 @@ function Document({
   children: React.ReactNode
   title?: string
 }) {
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs)
+  }, [])
+
   return (
     <html lang="en">
       <head>
