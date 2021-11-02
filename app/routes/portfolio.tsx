@@ -12,8 +12,16 @@ import {
 } from "@mui/material"
 import { CloudinaryImage } from "react-easy-cloudinary"
 import { Outlet, useLocation } from "react-router-dom"
+import { MetaFunction } from "remix"
 import { GridImage, pages } from "../pages"
 import { TechStack } from "../TechStack"
+
+export let meta: MetaFunction = () => {
+  return {
+    title: "Portfolio",
+    description: "Software Engineer",
+  }
+}
 
 export default function Portfolio() {
   const page = usePage()

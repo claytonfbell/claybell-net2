@@ -1,6 +1,8 @@
 import { darken, ThemeProvider, useTheme } from "@mui/material"
 import { useDarkMode } from "material-ui-pack"
-import React from "react"
+import React, { useEffect } from "react"
+import { useKeyboard } from "./routes/keyboards"
+import { usePage } from "./routes/portfolio"
 
 const BLUE = "#27aae1"
 
@@ -62,6 +64,18 @@ export function SiteTheme(props: { children: React.ReactNode }) {
       },
     },
   })
+
+  const page = usePage()
+  const keyboard = useKeyboard()
+  useEffect(() => {
+    if (keyboard !== undefined) {
+      document.title = keyboard.name
+    } else if (page !== undefined) {
+      document.title = page.title
+    } else {
+      document.title = "Clayton Bell - Software Engineer"
+    }
+  }, [page, keyboard])
 
   return <ThemeProvider theme={siteThem}>{props.children}</ThemeProvider>
 }

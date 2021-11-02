@@ -2,7 +2,14 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import { CloudinaryImage } from "react-easy-cloudinary"
 import ReactMarkdown from "react-markdown"
+import { MetaFunction } from "remix"
 import { useKeyboard } from "../keyboards"
+
+export let meta: MetaFunction = () => {
+  return {
+    title: "Keyboards",
+  }
+}
 
 export default function Keyboard() {
   const keyboard = useKeyboard()

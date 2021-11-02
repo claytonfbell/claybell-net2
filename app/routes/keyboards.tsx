@@ -1,7 +1,13 @@
 import { Grid, Link as MUILink, useTheme } from "@mui/material"
 import { CloudinaryImage } from "react-easy-cloudinary"
 import { useLocation, useParams } from "react-router-dom"
-import { Link, Outlet } from "remix"
+import { Link, MetaFunction, Outlet } from "remix"
+
+export let meta: MetaFunction = () => {
+  return {
+    title: "Keyboards",
+  }
+}
 
 interface RouteParams {
   name: string
