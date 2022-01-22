@@ -81,13 +81,14 @@ interface Photo {
 
 const keyboards: Keyboard[] = [
   {
+    name: "Melgeek 60%",
+    photos: [{ fileName: "melgeek-robin-egg-blue.jpg", caption: "Front" }],
+    notes: 'SA "Ice Cap" Keyset (Sublimated)',
+  },
+  {
     name: "IDOBAO ID80 V2 75%",
-    photos: [
-      { fileName: "808-3.jpeg", caption: "Side" },
-      { fileName: "808-1.jpeg", caption: "Front with Lights" },
-      { fileName: "808-2.jpeg", caption: "Front" },
-    ],
-    notes: "IFK 808-Boom Keyset",
+    photos: [{ fileName: "IDOBAO.jpeg", caption: "Front" }],
+    notes: "DROP + BIIP MT3 EXTENDED 2048 CUSTOM KEYCAP SET",
   },
   {
     name: "Laser Cut Stainless Steel",
@@ -119,12 +120,16 @@ const keyboards: Keyboard[] = [
   },
   {
     name: "75% Orange",
-    photos: [
-      { fileName: "orange1.jpg", caption: "Top" },
-      { fileName: "orange2.jpg", caption: "Corner" },
-    ],
-    notes: `- PCB \`kbd75-rev1\`
+    photos: [{ fileName: "kbdfans-75-orange.jpg", caption: "Front" }],
+    notes: `- DROP MT3 SKIIDATA KEYCAP SET
+- PCB \`kbd75-rev1\`
 - Cherry Brown Switches`,
+  },
+  {
+    name: "75% Black",
+    photos: [{ fileName: "kbdfans-75-black.jpg", caption: "Front" }],
+    notes: `- IFK 808-Boom Keyset
+- PCB \`kbd75-rev1\``,
   },
   {
     name: "60% Black",
